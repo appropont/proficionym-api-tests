@@ -1,0 +1,22 @@
+{
+  "name": "proficionym-api-tests",
+  "version": "0.0.1",
+  "description": "An api implementation agnostic suite of tests to aid in porting the api to other languages and frameworks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "bash localize.sh dredd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appropont/proficionym-api-tests.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appropont/proficionym-api-tests/issues"
+  },
+  "homepage": "https://github.com/appropont/proficionym-api-tests#readme",
+  "devDependencies": {
+    "dredd": "^1.0.5"
+  }
+}
