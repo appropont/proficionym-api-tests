@@ -1,17 +1,13 @@
-FORMAT: 1A
-HOST: http://api.proficionym.dev:3000
 
-# Synonyms
 
-An endpoint that fetches synonyms for a word.
-It currently uses the dictionaryapi.com Thesaurus API.
+# Group Synonyms
 
 ## 200 - Synonyms [/synonyms/{word}]
 
 Successful request.
 
 + Parameters
-    + word: "test" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + word: test (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
     
 ### Get a successful set of synonyms [GET]
 
@@ -99,7 +95,7 @@ Successful request.
 Failed request due to invalid string.
 
 + Parameters
-    + word: "test123" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + word: test123 (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
 ### Get an error for an invalid string [GET]
 
@@ -110,18 +106,17 @@ Failed request due to invalid string.
             "description": "The word you look up must be a single word with no numbers or punctuation"
         }
     
-## 400 - Synonyms [/synonyms/{word}]
+## 200 - Synonyms [/synonyms/{word}]
 
-Failed request due to no synonyms being found for otherwise valid string.
+Successful but empty request
 
 + Parameters
-    + word: "ierghefvibei" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + word: ierghefvibei (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
 ### Get an error for an invalid string [GET]
 
-+ Response 400 (application/json)
++ Response 200 (application/json)
 
         {
-            "error": "No Synonyms",
-            "description": "_mapRawSynonyms: rawSynonyms fails validation"
+            "synonyms": []
         }

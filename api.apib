@@ -1,201 +1,188 @@
-FORMAT: 1A
-HOST: http://api.proficionym.dev
 
-# Index
-
-An endpoint that fetches synonyms for a word.
-It currently uses the dictionaryapi.com Thesaurus API.
+# Group Index
 
 ## 200 - Index [/]
 
 Successful request.
-	
-### Get a successful set of synonyms
+    
+### Get a successful set of synonyms [GET]
 
 + Response 200 (application/json)
-		
-		{
-			"name":"Proficionym API",
-			"version":"0.0.1"
-		}FORMAT: 1A
-HOST: http://api.proficionym.dev
+        
+        {
+            "name":"Proficionym API",
+            "version":"0.0.1"
+        }
 
-# Synonyms
-
-An endpoint that fetches synonyms for a word.
-It currently uses the dictionaryapi.com Thesaurus API.
+# Group Synonyms
 
 ## 200 - Synonyms [/synonyms/{word}]
 
 Successful request.
 
 + Parameters
-	+ word: "test" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
-	
-### Get a successful set of synonyms
+    + word: test (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    
+### Get a successful set of synonyms [GET]
 
 + Response 200 (application/json)
 
-		{
-		    "synonyms":[
-		        "essay",
-		        "experimentation",
-		        "test",
-		        "trial",
-		        "trialanderror",
-		        "dryrun",
-		        "shakedown",
-		        "exercise",
-		        "practice",
-		        "rehearsal",
-		        "tryout",
-		        "workout",
-		        "crucible",
-		        "ordeal",
-		        "attempt",
-		        "effort",
-		        "try",
-		        "exam",
-		        "quiz",
-		        "aptitudetest",
-		        "intelligencetest",
-		        "placementtest",
-		        "pretest",
-		        "retest",
-		        "board",
-		        "midterm",
-		        "midyear",
-		        "catechism",
-		        "audition",
-		        "final",
-		        "checkup",
-		        "inspection",
-		        "review",
-		        "inquiry",
-		        "interrogation",
-		        "investigation",
-		        "probe",
-		        "research",
-		        "sample",
-		        "check",
-		        "investigate",
-		        "study",
-		        "resample",
-		        "strain",
-		        "stretch",
-		        "tax",
-		        "demand",
-		        "exact",
-		        "importune",
-		        "press",
-		        "pressure",
-		        "push",
-		        "aggravate",
-		        "agitate",
-		        "annoy",
-		        "bother",
-		        "exasperate",
-		        "gall",
-		        "get",
-		        "grate",
-		        "harass",
-		        "harry",
-		        "hassle",
-		        "irk",
-		        "irritate",
-		        "nettle",
-		        "pain",
-		        "peeve",
-		        "pester",
-		        "rile",
-		        "spite",
-		        "vex"
-		    ]
-		}
+        {
+            "synonyms":[
+                "essay",
+                "experimentation",
+                "test",
+                "trial",
+                "trialanderror",
+                "dryrun",
+                "shakedown",
+                "exercise",
+                "practice",
+                "rehearsal",
+                "tryout",
+                "workout",
+                "crucible",
+                "ordeal",
+                "attempt",
+                "effort",
+                "try",
+                "exam",
+                "quiz",
+                "aptitudetest",
+                "intelligencetest",
+                "placementtest",
+                "pretest",
+                "retest",
+                "board",
+                "midterm",
+                "midyear",
+                "catechism",
+                "audition",
+                "final",
+                "checkup",
+                "inspection",
+                "review",
+                "inquiry",
+                "interrogation",
+                "investigation",
+                "probe",
+                "research",
+                "sample",
+                "check",
+                "investigate",
+                "study",
+                "resample",
+                "strain",
+                "stretch",
+                "tax",
+                "demand",
+                "exact",
+                "importune",
+                "press",
+                "pressure",
+                "push",
+                "aggravate",
+                "agitate",
+                "annoy",
+                "bother",
+                "exasperate",
+                "gall",
+                "get",
+                "grate",
+                "harass",
+                "harry",
+                "hassle",
+                "irk",
+                "irritate",
+                "nettle",
+                "pain",
+                "peeve",
+                "pester",
+                "rile",
+                "spite",
+                "vex"
+            ]
+        }
 
 ## 400 - Synonyms [/synonyms/{word}]
 
 Failed request due to invalid string.
 
 + Parameters
-	+ word: "test123" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + word: test123 (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
-### Get an error for an invalid string
+### Get an error for an invalid string [GET]
 
 + Response 400 (application/json)
 
-		{
-			"error": "Invalid Parameter",
-			"description": "The word you look up must be a single word with no numbers or punctuation"
-		}
-	
-## 400 - Synonyms [/synonyms/{word}]
+        {
+            "error": "Invalid Parameter",
+            "description": "The word you look up must be a single word with no numbers or punctuation"
+        }
+    
+## 200 - Synonyms [/synonyms/{word}]
 
-Failed request due to no synonyms being found for otherwise valid string.
+Successful but empty request
 
 + Parameters
-	+ word: "ierghefvibei" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + word: ierghefvibei (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
-### Get an error for an invalid string
+### Get an error for an invalid string [GET]
 
-+ Response 400 (application/json)
++ Response 200 (application/json)
 
-		{
-			"error": "No Synonyms",
-			"description": "_mapRawSynonyms: rawSynonyms fails validation"
-		}
-FORMAT: 1A
-HOST: http://api.proficionym.dev
+        {
+            "synonyms": []
+        }
 
-# Whois
 
-An endpoint that checks whether a domain name is registered. Currently supported TLDs are: .com, .net, .org, .io
+# Group Whois
 
 ## 200 - Whois [/whois/{domain}]
 
 Successful lookup of an unregistered .com
 
 + Parameters
-	+ domain: "testing123abcd321.com" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
-	
-### Look up an unregistered .com
+    + domain: testing123abcd321.com (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    
+### Look up an unregistered .com [GET]
 
 + Response 200 (application/json)
-		
-		{
-			"domain":"testing123abcd321.com",
-			"status":"available"
-		}
-		
+        
+        {
+            "domain":"testing123abcd321.com",
+            "status":"available"
+        }
+        
 
 ## 200 - Whois [/whois/{domain}]
 
 Successful lookup of a registered .com
 
 + Parameters
-	+ word: "google.com" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + domain: google.com (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
-### Look up a registered .com
+### Look up a registered .com [GET]
 
 + Response 200 (application/json)
 
-		{
-			"domain": "google.com",
-			"status": "registered"
-		}
-	
+        {
+            "domain": "google.com",
+            "status": "registered"
+        }
+    
 ## 200 - Whois [/whois/{domain}]
 
 Failed request due to no synonyms being found for otherwise valid string.
 
 + Parameters
-	+ word: "no-tld" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + domain: no-tld (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
-### Get an error for an invalid domain
+### Get an error for an invalid domain [GET]
 
 + Response 200 (application/json)
 
-		{
-			"domain": "no-tld",
-			"status": "error"
-		}
+        {
+            "domain": "no-tld",
+            "status": "error"
+        }

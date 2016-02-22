@@ -1,16 +1,13 @@
-FORMAT: 1A
-HOST: http://api.proficionym.dev:3000
 
-# Whois
 
-An endpoint that checks whether a domain name is registered. Currently supported TLDs are: .com, .net, .org, .io
+# Group Whois
 
 ## 200 - Whois [/whois/{domain}]
 
 Successful lookup of an unregistered .com
 
 + Parameters
-    + domain: "testing123abcd321.com" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + domain: testing123abcd321.com (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
     
 ### Look up an unregistered .com [GET]
 
@@ -27,7 +24,7 @@ Successful lookup of an unregistered .com
 Successful lookup of a registered .com
 
 + Parameters
-    + word: "google.com" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + domain: google.com (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
 ### Look up a registered .com [GET]
 
@@ -43,7 +40,7 @@ Successful lookup of a registered .com
 Failed request due to no synonyms being found for otherwise valid string.
 
 + Parameters
-    + word: "no-tld" (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
+    + domain: no-tld (required, string) - Synonyms will be looked up for this word. It must not have punctuation or numbers.
 
 ### Get an error for an invalid domain [GET]
 
